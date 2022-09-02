@@ -1,0 +1,107 @@
+﻿@model Symposium.Models.Post
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<script>
+
+    function toLikePost(postId) {
+        location.href = "https://localhost:44380/Posts/LikePost/" + postId;
+    }
+
+    function toDislikePost(postId) {
+        location.href = "https://localhost:44380/Posts/DislikePost/" + postId;
+    }
+
+   
+
+</script>
+
+<h1 id="mainTitleSub">@Model.Title</h1>
+
+<div  class="row detMain">
+    <div class="col-md-6">
+        <p class="detPar">@Model.Content</p>
+    </div>
+    <div class="col-md-6">
+        <img class="detImg" src="@Model.ImgURL" alt="alt text">
+    </div>
+</div>
+
+
+
+
+<div class="row">
+    <div class="col-md-6">
+        @{
+            if (ViewBag.isLiked == false)
+            {
+                <button class="btn btn-success likeButton" onclick="toLikePost(@Model.PostId)">Like</button>
+
+            }
+            else
+            {
+                <button class="btn btn-danger likeButton" onclick="toDislikePost(@Model.PostId)">Remove Like</button>
+
+            }
+        }
+        <h4 class="likeNum">@Model.Likes likes</h4>
+    </div>
+    <div class="col-md-6">
+        <h4 class="dateInfo">Discussion created on @Model.CreatedDate</h4>
+    </div>
+</div>
+
+
+<hr />
+
+
+
+<div id="commentDiv">
+    <form method="post" action="../../Posts/AddComment">
+
+        <input name="postId" type="hidden" value="@Model.PostId" />
+
+        <input name="newComment" type="text" id="mainSearchBar"/>
+        <input type="submit" id="mainSearchButton" value="COMMENT"/>
+
+    </form>
+</div>
+
+    @{
+        var list = Model.Comments.ToList();
+        list.Reverse();
+        foreach (var comment in list)
+        {
+            string res = comment.UserName.Substring(0, 1);
+            <hr />
+            <div class="profile">
+                <div class="profilePP">@res</div>
+                <h2 class="commentUserName">@comment.UserName</h2>
+            </div>
+            <p class="commentContent">@comment.Content</p>
+        }
+    }
+
+@section scripts{
+    <script>
+        function generateRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        $(document).ready(function () {
+
+            var x = document.getElementsByClassName("profilePP");
+            var i;
+            for (i = 0; i < x.length; i++) {
+                x[i].style.backgroundColor = generateRandomColor();
+            }
+        })
+    </script>
+}

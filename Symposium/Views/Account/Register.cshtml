@@ -1,0 +1,39 @@
+﻿@model Symposium.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "formReg", role = "form" }))
+{
+        @Html.AntiForgeryToken()
+
+
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        
+        <h3>Register</h3>
+  
+        @Html.LabelFor(m => m.Email, new { @class = "label" })
+        @Html.TextBoxFor(m => m.Email, new { @class = "input" })
+    
+
+  
+        @Html.LabelFor(m => m.UserName, new { @class = "label" })
+        @Html.TextBoxFor(m => m.UserName, new { @class = "input" })
+ 
+
+
+        @Html.LabelFor(m => m.Password, new { @class = "label" })
+        @Html.PasswordFor(m => m.Password, new { @class = "input" })
+   
+
+        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "label" })
+        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "input" })
+ 
+
+       <input id="loginButton" type="submit" value="Register" />
+   
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

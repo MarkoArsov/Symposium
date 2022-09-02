@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Symposium.Models.Post>
+
+@{
+    ViewBag.Title = "MyLikedPosts";
+}
+
+<script>
+
+    function toPost(postId) {
+        location.href = "https://localhost:44380/Posts/Details/" + postId;
+    }
+
+    function postHover(likeNum, comNum, i) {
+        var h2 = document.getElementById(i)
+        h2.textContent = likeNum + " likes and " + comNum + " comments"
+    }
+
+    function postOut(name, i) {
+        var h2 = document.getElementById(i)
+        h2.textContent = name;
+    }
+
+</script>
+
+<h1 id="mainTitleSub">Liked Discussions</h1>
+<div class="container">
+
+    @{
+
+        int n = Model.Count();
+        int j = 0;
+
+        if (n % 2 != 0)
+        {
+            j = 1;
+            var x = Model.ElementAt(0);
+            <div class="row">
+                <div class="col-md-12" onclick="toPost(@x.PostId)">
+                    <div class="post" style="background-image:url(@x.ImgURL)" onmouseover="postHover(@x.Likes , @x.Comments.Count() , '0')" onmouseout="postOut('@x.Title', '0')">
+                        <h2 class="postTitle" id="0">
+                            @x.Title
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        }
+
+        for (int i = j; i < n - 1; i = i + 2)
+        {
+            var x = Model.ElementAt(i);
+            var y = Model.ElementAt(i + 1);
+            <div class="row">
+                <div class="col-md-6" onclick="toPost(@x.PostId)">
+                    <div class="post" style="background-image:url(@x.ImgURL)" onmouseover="postHover(@x.Likes , @x.Comments.Count() , @i)" onmouseout="postOut('@x.Title', @i)">
+                        <h2 class="postTitle" id="@i">
+                            @x.Title
+                        </h2>
+                    </div>
+                </div>
+                <div class="col-md-6" onclick="toPost(@y.PostId)">
+                    <div class="post" style="background-image:url(@y.ImgURL)" onmouseover="postHover(@y.Likes , @y.Comments.Count() , @(i+1))" onmouseout="postOut('@y.Title', @(i+1))">
+                        <h2 class="postTitle" id="@(i+1)">
+                            @y.Title
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+
+</div>

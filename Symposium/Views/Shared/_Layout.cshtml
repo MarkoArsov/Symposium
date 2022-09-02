@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Symposium</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/StyleSheet.css" rel="stylesheet" type="text/css">
+    <script>
+        function toPosts() {
+            location.href = "https://localhost:44380/Posts/Index"
+        }
+
+        function toHome() {
+            location.href = "https://localhost:44380/Posts/Home"
+        }
+
+        function toCreate() {
+            location.href = "https://localhost:44380/Posts/Create"
+        }
+
+        function toAddRole() {
+            location.href = "https://localhost:44380/Account/AddRoleToUser"
+        }
+
+        function toMyPosts() {
+            location.href = "https://localhost:44380/Posts/MyPosts"
+        }
+
+        function toLikedPosts() {
+            location.href = "https://localhost:44380/Posts/MyLikedPosts"
+        }
+
+        function toUser() {
+            location.href = "https://localhost:44380/Posts/UserProfile"
+        }
+
+        function toRegister() {
+            location.href = "https://localhost:44380/Account/Register"
+        }
+
+        function toLogIn() {
+            location.href = "https://localhost:44380/Account/Login"
+        }
+
+        function toLogOff() {
+            location.href = "javascript:document.getElementById('logoutForm').submit()"
+        }
+
+    </script>
+</head>
+<body>
+    <div id="nav" class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li id="navTitle" class="navLi" onclick="toHome()">SYMPOSIUM</li>
+                    <li class="navLi" onclick="toPosts()">Discussions</li>
+                    <li class="navLi" onclick="toCreate()">New Discussion</li>
+                    @{
+                        if (User.IsInRole("Administrator"))
+                        {
+                            <li class="navLi" onclick="toAddRole()">Add Role to User</li>
+
+                        }
+                    }
+               
+
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+  
+        <footer>
+
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

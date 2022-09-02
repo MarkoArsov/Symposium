@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Symposium.Models.Post>
+
+@{
+    ViewBag.Title = "MyPosts";
+}
+
+<h1 id="mainTitleSub">My Discussions</h1>
+
+<table id="postsTable" class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Content)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Content)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>
+                <td>
+
+                    <button onclick="toEdit(@item.PostId)" class="adminButton btn btn-default">Edit</button>
+
+                    <button post-id="@item.PostId" class="adminButton btn btn-danger js-delete">Delete</button>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts{
+    
+    <script>
+        $(document).ready(function () {
+            var table = $("#postsTable").DataTable()
+            
+            $("#postsTable .js-delete").on("click", function () {
+                var button = $(this)
+                bootbox.confirm("<div class='bootboxDiv'>Are you sure you want to delete this discussion?</div>", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/Posts/MyDelete/" + button.attr("post-id"),
+                            method: "GET",
+                            success: function () {
+                                table.row(button.parent()).remove().draw()
+                            }
+                        });
+                    }
+                })
+            })
+
+        })
+
+        function toEdit(postID) {
+            location.href = "https://localhost:44380/Posts/Edit/" + postID;
+        }
+    </script>
+    
+    }

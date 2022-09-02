@@ -1,0 +1,420 @@
+﻿body {
+    background-color: #35363a;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    color: white;
+}
+
+.mainText {
+    font-family: 'Courier New', monospace;
+    margin-left: 15px;
+}
+
+.navbar {
+    background-color: #7289DA;
+    border-color: #7289DA;
+}
+
+#mainTitle {
+    font-size: 220px;
+    color: #7289DA;
+    font-family: 'Courier New', monospace;
+    text-align: center;
+    margin: 1px 60px 5px 0px;
+}
+
+#mainTitleSub {
+    font-size: 50px;
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    margin: 50px 60px 1px 60px;
+}
+
+.homeDiv {
+    margin-top: 90px;
+}
+
+#luckyText {
+    display: inline-block;
+    font-size: 30px;
+    text-align: center;
+    vertical-align: middle;
+    margin: 10px;
+    font-family: 'Courier New', monospace;
+    color: #35363a;
+    padding: 5px 10px;
+}
+
+#luckyButton {
+    display: inline-block;
+    height: 40px;
+    width: 400px;
+    color: #35363a;
+    font-family: 'Courier New', monospace;
+    font-size: 22px;
+    font-weight: 500;
+    border-radius: 50px;
+    border: 1px solid #35363a;
+    margin-left: 380px;
+}
+
+    #luckyButton:hover {
+        background-color: #35363a;
+        color: white;
+        border: 1px solid white;
+    }
+
+        #luckyButton:hover #luckyText {
+            color: white;
+        }
+
+.navbar-collapse .collapse a {
+    color: white;
+}
+
+.form-group {
+    margin: 1px 20px 20px 20px;
+}
+
+.control-label {
+    font-family: 'Courier New', monospace;
+    font-size: 15px;
+}
+
+#mainButton {
+    display: block;
+    border: 3px solid #35363a;
+    width: 100px;
+    margin-left: 120px;
+    font-family: 'Courier New', monospace;
+}
+
+    #mainButton:hover {
+        background-color: #35363a;
+        color: white;
+        border: 3px solid white;
+    }
+
+.navLi {
+    color: white;
+    padding: 15px;
+}
+
+    .navLi:hover {
+        color: #35363a;
+        cursor: pointer;
+    }
+
+.subButton {
+    display: block;
+    border: 3px solid #35363a;
+    width: 300px;
+    margin-left: 0px;
+    font-family: 'Courier New', monospace;
+    border-radius: 5px;
+}
+
+    .subButton:hover {
+        background-color: #35363a;
+        color: white;
+        border: 3px solid white;
+    }
+
+.form {
+    height: 520px;
+    width: 400px;
+    background-color: rgba(255,255,255,0.05);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 45%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.4);
+    padding: 50px 35px;
+}
+
+    .form * {
+        font-family: 'Courier New', monospace;
+        color: #ffffff;
+        letter-spacing: 0.5px;
+        outline: none;
+        border: none;
+    }
+
+    .form h3 {
+        font-size: 32px;
+        font-weight: 500;
+        line-height: 42px;
+        text-align: center;
+    }
+
+    .form .label {
+        display: block;
+        margin-top: 30px;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .form .input {
+        display: block;
+        height: 50px;
+        width: 100%;
+        background-color: rgba(255,255,255,0.07);
+        border-radius: 3px;
+        padding: 0 10px;
+        margin: auto;
+        font-size: 14px;
+        font-weight: 300;
+    }
+
+.formReg {
+    height: 700px;
+    width: 500px;
+    background-color: rgba(255,255,255,0.05);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 53%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.4);
+    padding: 50px 35px;
+}
+
+    .formReg * {
+        font-family: 'Courier New', monospace;
+        color: #ffffff;
+        letter-spacing: 0.5px;
+        outline: none;
+        border: none;
+    }
+
+    .formReg h3 {
+        font-size: 32px;
+        font-weight: 500;
+        line-height: 42px;
+        text-align: center;
+    }
+
+    .formReg .label {
+        display: block;
+        margin-top: 30px;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .formReg .input {
+        display: block;
+        height: 50px;
+        width: 100%;
+        background-color: rgba(255,255,255,0.07);
+        border-radius: 3px;
+        padding: 0 10px;
+        margin: auto;
+        font-size: 14px;
+        font-weight: 300;
+    }
+
+#loginButton {
+    display: block;
+    margin: auto;
+    margin-top: 40px;
+    width: 100%;
+    background-color: #7289DA;
+    color: white;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid #7289DA;
+}
+
+    #loginButton:hover {
+        color: white;
+        background-color: transparent;
+        border: 2px solid white;
+    }
+
+.newPostForm {
+    height: 600px;
+    width: 600px;
+    top: 50%;
+    left: 50%;
+}
+
+.post {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: 22px 9px;
+    padding: 50px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.postTitle {
+    margin: 0px;
+    font-size: 26px;
+    color: white;
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    background-color: rgba(53,54,58,0.85);
+    padding: 14px;
+    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+}
+
+.post:hover {
+    box-shadow: 0 0 40px rgba(114,137,218,0.45);
+}
+
+.btnEdit {
+    text-decoration: none;
+    padding: 20px;
+    border: white 2px solid;
+    color: white;
+}
+
+.adminButton {
+    width: 100px;
+    margin: 7px;
+}
+
+.bootboxDiv {
+    color: black;
+}
+
+.radio {
+    display: block;
+    margin-left: 230px;
+}
+
+.radioGroup {
+    margin: auto;
+}
+
+.radioButton {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+#searchDiv {
+    display: block;
+    margin: 40px 40px 30px 100px;
+}
+
+#mainSearchBar {
+    display: inline-block;
+    width: 800px !important;
+    height: 40px;
+    margin-right: 13px;
+    color: #35363a;
+    font-size: 15px;
+    border-radius: 50px;
+    border: none;
+    padding: 10px;
+}
+
+    #mainSearchBar:focus {
+        outline: none !important;
+    }
+
+#mainSearchButton {
+    display: inline-block;
+    height: 40px;
+    width: 150px;
+    color: white;
+    background-color: #7289DA;
+    border: 1px solid #7289DA;
+    font-family: 'Courier New', monospace;
+    font-size: 22px;
+    font-weight: 500;
+    border-radius: 50px;
+}
+
+    #mainSearchButton:hover {
+        border: 1px solid white;
+        background-color: transparent;
+    }
+
+.indexSearchDiv {
+    margin: 40px 40px 30px 100px !important;
+}
+
+.detMain {
+    margin-top: 40px;
+}
+
+.detImg {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.detPar {
+    padding-top: 5px;
+    font-size: 16px;
+    text-align: justify;
+}
+
+.likeButton {
+    width: 180px !important;
+}
+
+.likeNum {
+    display: inline-block;
+    margin-left: 10px;
+    font-family: 'Courier New', monospace;
+}
+
+#commentDiv {
+    margin: 30px 0px 30px 80px;
+}
+
+.profile {
+    margin-bottom: 17px;
+}
+
+.profilePP {
+    display: inline-block;
+    font-size: 30px;
+    padding: 5px;
+    text-align: center;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+
+.commentUserName {
+    margin: 0px;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.commentContent {
+    padding: 0px 0px 15px 30px;
+    font-size: 16px;
+    text-align: justify;
+}
+
+.blueText {
+    color: #7289DA;
+}
+
+.dateInfo {
+    display: inline-block;
+    margin-left: 45px;
+    margin-top: 10px;
+    text-align: center;
+    font-family: 'Courier New', monospace;
+}

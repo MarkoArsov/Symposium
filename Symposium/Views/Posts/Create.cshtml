@@ -1,0 +1,45 @@
+﻿@model Symposium.Models.Post
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+@using (Html.BeginForm("Create", "Posts", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new {  @class = "form newPostForm", role = "form" })) 
+{
+    @Html.AntiForgeryToken()
+    
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <h3>Create a New Discussion</h3>
+
+        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "label" })
+     
+        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "input" } })
+        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+
+
+
+        @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "label" })
+  
+        @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "input" } })
+        @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+ 
+
+
+        <label class="label">Image URL</label>
+ 
+        @Html.EditorFor(model => model.ImgURL, new { htmlAttributes = new { @class = "input" } })
+        @Html.ValidationMessageFor(model => model.ImgURL, "", new { @class = "text-danger" })
+     
+
+
+      <input  id="loginButton" type="submit" value="Create" />
+ 
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+}
+
+<script>
+    function radnPost() {
+        location.href = "RandomPost"
+    }
+</script>
+
+<div class="homeDiv">
+    <h1 id="mainTitle">SYMPOSIUM</h1>
+
+    <div id="searchDiv">
+        @using (Html.BeginForm("Search", "Posts"))
+        {
+            <input id="mainSearchBar" type="text" name="str" />
+            <input id="mainSearchButton" type="submit" value="SEARCH" />
+
+        }
+
+    </div>
+    <input type="button" id="luckyButton" onclick="radnPost()" value="I'm Feeling Lucky" />
+
+</div>

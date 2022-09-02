@@ -1,0 +1,37 @@
+﻿@model Symposium.Models.AddToRoleViewModel
+
+@{
+    ViewBag.Title = "AddRoleToUser";
+}
+
+@using (Html.BeginForm("AddRolePOST", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form newPostForm", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <h3>Add Role to User</h3>
+
+    @Html.Label("Username", htmlAttributes: new { @class = "label" })
+
+    @Html.EditorFor(model => model.UserEmail, new { htmlAttributes = new { @class = "input" } })
+    @Html.ValidationMessageFor(model => model.UserEmail, "", new { @class = "text-danger" })
+
+
+
+    @Html.LabelFor(model => model.Role, htmlAttributes: new { @class = "label" })
+
+<div class="radioGroup">
+    <div class="radio">@Html.RadioButtonFor(model => model.Role, "Administrator", new { htmlAttributes = new { @class = "radioButton" } }) Admin </div>
+    <div class="radio">@Html.RadioButtonFor(model => model.Role, "User", new { htmlAttributes = new { @class = "radioButton" } }) User </div>
+</div>
+
+    
+    @Html.ValidationMessageFor(model => model.Role, "", new { @class = "text-danger" })
+
+
+    <input id="loginButton" type="submit" value="Save Changes" />
+
+
+}
