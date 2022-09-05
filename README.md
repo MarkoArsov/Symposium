@@ -5,7 +5,7 @@
 
 Developed using C# (ASP.NET), HTML, CSS (Bootstrap) and JavaScript (JQuery)
 
-The data for auction listings, users and comments is stored in a SQL database
+The data for discussions, users and comments is stored in a SQL database
 #
 
  - Users can **view** and **search** all of the currently active discussions
